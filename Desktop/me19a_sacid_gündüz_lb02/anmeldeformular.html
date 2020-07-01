@@ -1,0 +1,200 @@
+<!--
+Anmeldeformular: Grallcenter
+Kunde: Grallcenter
+Author: Sacid Gündüz
+Datum: 24.04.2020
+Version: 1.0
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+        
+        <title>guitar vor ever</title>
+        <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+    <style>
+         section {
+
+            background-image: url(../bilder/string-555070_1280.jpg);
+            background-repeat: no-repeat;
+            background-size: 1500px;
+            border: solid black 1px;
+            opacity: 0.8;
+            display: flex;
+            justify-content: center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: auto;
+
+        }
+        
+          label.error{color:#f23c3c}
+          label.valid{color:#91d64d;}
+          input.error{border-color:#f23c3c;color:#f23c3c; }
+          input.valid{border-color:#91d64d;}
+        
+    </style> 
+</head>
+<body>
+    <header>
+
+    </header>
+    <nav>
+        <a href="Index.html" target="_self">Homepage</a>
+        <a href="produkte.html" target="_self">Produkte</a>
+        <a href="videos.html">Videos</a>
+        <a href="anmeldeformular.html">Anmeldeformular</a>
+        <a href="anmelden.html">Login</a>
+
+    </nav>
+    
+        <section>
+            <form  novalidate name="fit" action="../danke.html" id="form" method="post" onsubmit="return anmeldeformularkontrolieren()">
+                <h2 class="andi">Kurs Anmeldung</h2>
+                <p>Bitte füllen Sie die nachfolgenden Eingabefelder aus:</p>
+                <p>Felder mit (&#10039;) sind Pflichtfelder!</p>
+                
+                <fieldset id="kontakt">
+                    <legend>Persönliche Daten</legend>
+                    <div class="fit-group">
+                        <label for="anrede">Anrede (&#10039;)
+                        </label><br /> 
+                        <label><input class="radio-inline" name="anrede" value="frau" checked="checked" type="radio"> Frau</label>
+                        <label><input class="radio-inline" name="anrede" value="herr" type="radio"> Herr</label>
+                    </div>
+                    <div class="fit-group">
+                        <label for="vorname" required>Vorname (&#10039;)</label><input name="vorname" placeholder="Vorname" class="form-control" id="vorname" type=" text" required minlength="2" maxlength="25">
+                        <div id="falsh_vname" class="error"></div>
+                        <div id="korrekt_vname" class="valid"></div>
+                    </div>
+                    <div class="fit-group">
+                        <label for="name" required>Name (&#10039;)</label>  
+                        <input name="name" placeholder="Name" class="form-control" id="name" type="text" autofocus required minlength="2" maxlength="25">
+                        <div id="falsh_nname" class="error"></div>
+                        <div id="korrekt_nname" class="valid"></div>
+                    </div>
+                    <div class="fit-group">
+                        <label for="geburt">Geburtstag (&#10039;)</label>  
+                        <input name="geburt" placeholder="Geburtstag" class="form-control" id="geburt" type="text" required minlength="2" maxlength="25">
+                        <div id="falsh_geburt" class="error"></div>
+                        <div id="korrekt_geburt" class="valid"></div>
+                    </div>
+
+                    <div class="fit-group">
+                        <label for="adresse" required>Adresse (&#10039;)</label><input name="adresse" placeholder="Adresse" class="form-control" id="adresse" type="text" required minlength="2" maxlength="40">
+                        <div id="falsh_adresse" class="error"></div>
+                        <div id="korrekt_falsh_adresse" class="valid"></div>
+                    </div>
+
+                    <div class="fit-group">
+                        <label for="plz">Postleitzahl: (&#10039;)</label>
+                        <input pattern="[0-9]{4}" class="form-control"type="text" name="plz" id="plz" placeholder="Postleitzahl 4-stellig" required number minlength="4" maxlength="10">
+                        <div id="falsh_plz" class="error"></div>
+                        <div id="korrekt_plz" class="valid"></div>
+                    </div>
+
+                    <div class="fit-group">
+                        <label for="ort" required>Ort (&#10039;)</label>  
+                        <input name="ort" placeholder="Ort" class="form-control" id="ort" type="text" required minlength="2" maxlength="25">
+                    </div>
+
+                    <div class="fit-group">
+                        <label for="email" required>E-Mail (&#10039;)</label>  
+                        <input name="email" placeholder="test@test.ch" class="form-control" id="email" type="text" required>
+                        <div id="falsh_mail" class="error"></div>
+                        <div id="korrekt_mail" class="valid"></div>
+                    </div>
+
+                    <div class="fit-group">
+                        <label for="telefon" required>Telefon (&#10039;)</label>  
+                        <input name="telefon" placeholder="044 777 77 77" class="form-control" id="telefon" type="text" required minlength="10" maxlength="20" number>
+                    </div>
+                    <div class="form-group">
+                            <label for="username">Username wählen (&#10039;): </label>
+                            <input class="form-control" type="text" name="username" id="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Passwort wählen (&#10039;): </label>
+                            <input class="form-control" type="password" name="password" id="password" placeholder="Passwort">
+                        </div>
+                        <div class="form-group">
+                            <label class="password-meter-label" for="password">Passwortstärke:</label>
+                                <div class="password-meter">
+                                    <div class="password-meter-message">
+                                    &nbsp;
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password">Passwort wiederholen (&#10039;): </label>
+                            <input class="form-control" type="password" name="confirm_password" id="confirm_password" placeholder="Passwort wiederholen">
+                        </div>
+                </fieldset>
+
+                <fieldset id="sortiment">
+                    <legend>Gitarrenauswahl: </legend>
+                    <div class="fit-group">
+                      <label for="sortiment">Welche Gitarrenart wollen sie: </label>
+                        <select id="sortiment" name="sortiment" class="form-control" multiple="multiple">
+                              <option value="ok">Akkustik Gitarre</option>
+                              <option value="so">Elektrische Gitarre</option>
+                              <option value="ma">Klassische Gitarre</option>
+                              
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset id="datum">
+                    <legend>Datum auswahl: </legend>
+                    <div class="form-group">
+                        <label><input class="radio-inline" name="branche" value="krankenhaus" checked="checked" type="radio">⇐Jeden Monatag von 10 bis 12 Uhr</label>
+                         <label><input class="radio-inline" name="branche" value="Forschung" type="radio">⇐ Jeden Dienstag von 13 bis 15 Uhr</label>
+                        <label><input class="radio-inline" name="branche" value="Bildung" type="radio">⇐ Jeden Mitwoch von 10 bis 12 Uhr</label>
+                        <label><input class="radio-inline" name="branche" value="Endkunden" type="radio">⇐ Jeden Donnerstag von 14 bis 16 Uhr</label>
+                        <label><input class="radio-inline" name="branche" value="Endkunden" type="radio">⇐ Jeden Freitag von 20 bis 21 Uhr</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="infos">
+                    <legend>Infos:</legend>
+                    <div class="form-group">
+                      <label for="message">Nachricht:</label>
+                        <textarea class="form-control" id="message" name="message"></textarea>
+                    </div>
+                </fieldset>
+                    <div class="fit-group">
+                        <button name="senden" type="submit" class="senden">Senden</button>
+                        <button name="reset" type="reset" class="reset">Löschen</button>
+                    </div>
+            </form> <!--end form-->
+        </section>
+    
+    <footer>
+            <a href="impressum.html" target="_blank">Impressum</a>
+            <a href="agb.html" target="_blank">AGB</a>
+            <a href="support.html" target="_blank">Support</a>
+            
+    </footer>
+        
+        <script src="../js/jquery-3.1.1.js"></script>
+        <script src="../js/jquery.validate.min.js"></script>
+        <script src="../js/jquery.validate.password.js"></script>
+        <script src="../js/validate.js"></script>
+</body>
+</html>
